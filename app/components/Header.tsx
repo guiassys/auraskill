@@ -8,7 +8,7 @@ const navItems = [
     { label: "Overview", href: "/" },
     { label: "Repositories", href: "/repositories" },
     { label: "Projects", href: "/projects" },
-    { label: "Skills", href: "/skills" },
+    { label: "Skills", href: "/pages/skills" },
     { label: "Achievements", href: "/achievements" },
 ];
 
