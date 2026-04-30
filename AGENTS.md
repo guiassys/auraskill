@@ -18,11 +18,13 @@ This document outlines the general best practices to be followed by any AI agent
     *   Implement defensive coding practices to handle unexpected states and inputs.
     *   Ensure security measures are in place to prevent common vulnerabilities (e.g., SQL Injection, XSS).
 9.  **Configuration Files:** Do not use hardcoded parameters. All system configurations must be stored in dedicated configuration files.
+10. **Compatibility Check:** Before proposing a solution, analyze the compatibility of the libraries defined in the `@/package.json` file.
 
----
+## Environment
 
-<!-- BEGIN:nextjs-agent-rules -->
-# This is NOT the Next.js you know
+All proposed solutions must consider the following environment:
 
-This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` before writing any code. Heed deprecation notices.
-<!-- END:nextjs-agent-rules -->
+-   **Framework**: Next.js
+-   **Operational System**: WSL Ubuntu
+-   **Node.js Version**: v24.15.0
+-   **NPM Version**: 11.12.1
