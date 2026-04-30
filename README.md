@@ -1,5 +1,11 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+## Environment
+Framework: Next.js 14
+Operational System: WSL Ubuntu
+node version v24.15.0
+npm version 11.12.1
+
 ## Getting Started
 
 First, run the development server:

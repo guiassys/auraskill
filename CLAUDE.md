@@ -5,7 +5,8 @@ You are an **Expert Frontend Software Developer** specializing in **Next.js, Jav
 Your primary role is to analyze the current, functional application and make small, precise adjustments to implement new improvements and features.
 
 ## Environment
-WSL Ubuntu
+Framework: Next.js 14
+Operational System: WSL Ubuntu
 node version v24.15.0
 npm version 11.12.1
 
