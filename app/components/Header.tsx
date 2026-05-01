@@ -4,6 +4,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { useSession, signIn, signOut } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 const navItems = [
     { label: "Overview", href: "/" },
@@ -17,6 +18,32 @@ export default function Header() {
     const { data: session } = useSession();
     const [activeTab, setActiveTab] = useState("/");
     const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
+    const router = useRouter();
+
+    const handleSignOut = async () => {
+        if (!session) return;
+
+        try {
+            // Constrói a URL de logout do Keycloak
+            const issuerUrl = process.env.NEXT_PUBLIC_KEYCLOAK_ISSUER || 'http://localhost:8080/realms/master';
+            const logOutUrl = new URL(`${issuerUrl}/protocol/openid-connect/logout`);
+            
+            // Adiciona os parâmetros necessários
+            logOutUrl.searchParams.set("id_token_hint", session.id_token as string);
+            logOutUrl.searchParams.set("post_logout_redirect_uri", window.location.origin);
+
+            // Limpa a sessão local sem redirecionar
+            await signOut({ redirect: false });
+
+            // Redireciona para o logout do Keycloak
+            window.location.href = logOutUrl.toString();
+
+        } catch (error) {
+            console.error("An error occurred during sign out:", error);
+            // Fallback para o logout padrão em caso de erro
+            await signOut({ callbackUrl: "/" });
+        }
+    };
 
     return (
         <header className="bg-gray-100 border-b border-gray-200 sticky top-0 z-50">
@@ -58,7 +85,7 @@ export default function Header() {
                                         </div>
                                         <div className="border-t border-gray-100 mt-1 pt-1">
                                             <button
-                                                onClick={() => signOut()}
+                                                onClick={handleSignOut}
                                                 className="flex items-center gap-3 px-4 py-2 text-sm text-red-600 hover:bg-red-50 w-full text-left"
                                             >
                                                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
