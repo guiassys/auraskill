@@ -20,6 +20,17 @@ This document outlines the general best practices to be followed by any AI agent
 9.  **Configuration Files:** Do not use hardcoded parameters. All system configurations must be stored in dedicated configuration files.
 10. **Compatibility Check:** Before proposing a solution, analyze the compatibility of the libraries defined in the `@/package.json` file.
 
+## Task Prompt Generation
+
+When generating new task prompts, follow these guidelines:
+
+1.  **Directory:** Create new tasks in the `@/.prompts` directory.
+2.  **Filename:** The task filename must be prefixed with a sequential number. For example: `003-task-title.md`, `004-new-task-title.md`.
+3.  **Template:** Use the following standard template for all tasks:
+    *   **Title:**
+    *   **Objective:**
+    *   **Expected Result:**
+
 ## Environment
 
 All proposed solutions must consider the following environment:
