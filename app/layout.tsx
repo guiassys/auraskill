@@ -5,6 +5,7 @@ import "./globals.css";
 import Header from "@/app/components/Header";
 import Footer from "@/app/components/Footer";
 import Sidebar from "@/app/components/Sidebar";
+import Providers from "@/app/components/Providers"; // Import the new Providers component
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,6 +22,7 @@ export default function RootLayout({
   return (
       <html lang="pt-BR">
       <body className={`${inter.className} bg-gray-50 text-gray-900 min-h-screen flex flex-col`}>
+      <Providers> {/* Wrap the entire application with Providers */}
           <div className="flex flex-col min-h-screen">
               <Header />
               <div className="flex flex-1">
@@ -29,6 +31,7 @@ export default function RootLayout({
               </div>
               <Footer />
           </div>
+      </Providers>
       </body>
       </html>
   );
