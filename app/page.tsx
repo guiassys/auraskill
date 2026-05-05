@@ -1,15 +1,33 @@
-// app/page.tsx
+'use client';
+
+import { useTranslation } from 'react-i18next';
+import { useState, useEffect } from 'react';
 
 export default function OverviewPage() {
+  const { t } = useTranslation();
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  // This prevents the hydration mismatch by ensuring that the client-side rendering
+  // only happens after the component has mounted.
+  if (!isClient) {
+    // You can render a loading skeleton here if you want.
+    // Returning null is the simplest way to avoid the mismatch.
+    return null;
+  }
+
   return (
         <main className="flex-1 p-6">
           {/* Welcome Section */}
           <div className="mb-8">
             <h1 className="text-3xl font-bold text-gray-900 mb-2">
-              Bem-vindo ao AuraSkill
+              {t('welcome')}
             </h1>
             <p className="text-gray-600">
-              Sua plataforma completa para gestão de competências e habilidades
+              {t('subtitle')}
             </p>
           </div>
 
@@ -18,7 +36,7 @@ export default function OverviewPage() {
             <div className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm text-gray-500">Competências</p>
+                  <p className="text-sm text-gray-500">{t('competencies')}</p>
                   <p className="text-2xl font-bold text-gray-900">12</p>
                 </div>
                 <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
@@ -32,7 +50,7 @@ export default function OverviewPage() {
             <div className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm text-gray-500">Certificações</p>
+                  <p className="text-sm text-gray-500">{t('certifications')}</p>
                   <p className="text-2xl font-bold text-gray-900">5</p>
                 </div>
                 <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
@@ -46,7 +64,7 @@ export default function OverviewPage() {
             <div className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm text-gray-500">Projetos</p>
+                  <p className="text-sm text-gray-500">{t('projects')}</p>
                   <p className="text-2xl font-bold text-gray-900">8</p>
                 </div>
                 <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center">
@@ -60,7 +78,7 @@ export default function OverviewPage() {
             <div className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm text-gray-500">Conquistas</p>
+                  <p className="text-sm text-gray-500">{t('achievements')}</p>
                   <p className="text-2xl font-bold text-gray-900">15</p>
                 </div>
                 <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center">
@@ -75,7 +93,7 @@ export default function OverviewPage() {
           {/* Recent Activity */}
           <div className="bg-white rounded-lg border border-gray-200">
             <div className="p-4 border-b border-gray-200">
-              <h2 className="text-lg font-semibold">Atividade Recente</h2>
+              <h2 className="text-lg font-semibold">{t('recentActivity')}</h2>
             </div>
             <div className="p-4">
               <div className="space-y-4">
@@ -86,8 +104,8 @@ export default function OverviewPage() {
                     </svg>
                   </div>
                   <div className="flex-1">
-                    <p className="font-medium">Nova competência adicionada</p>
-                    <p className="text-sm text-gray-500">React.js - Há 2 dias</p>
+                    <p className="font-medium">{t('newCompetency')}</p>
+                    <p className="text-sm text-gray-500">{t('competencyDetails')}</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-4 p-3 hover:bg-gray-50 rounded-lg transition-colors">
@@ -97,8 +115,8 @@ export default function OverviewPage() {
                     </svg>
                   </div>
                   <div className="flex-1">
-                    <p className="font-medium">Certificação completada</p>
-                    <p className="text-sm text-gray-500">AWS Solutions Architect - Há 1 semana</p>
+                    <p className="font-medium">{t('certificationCompleted')}</p>
+                    <p className="text-sm text-gray-500">{t('certificationDetails')}</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-4 p-3 hover:bg-gray-50 rounded-lg transition-colors">
@@ -108,8 +126,8 @@ export default function OverviewPage() {
                     </svg>
                   </div>
                   <div className="flex-1">
-                    <p className="font-medium">Projeto atualizado</p>
-                    <p className="text-sm text-gray-500">Sistema de Gestão de Talentos - Há 2 semanas</p>
+                    <p className="font-medium">{t('projectUpdated')}</p>
+                    <p className="text-sm text-gray-500">{t('projectDetails')}</p>
                   </div>
                 </div>
               </div>

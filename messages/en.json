@@ -1,0 +1,17 @@
+{
+  "OverviewPage": {
+    "welcome": "Welcome to AuraSkill",
+    "subtitle": "Your complete platform for managing skills and abilities",
+    "competencies": "Competencies",
+    "certifications": "Certifications",
+    "projects": "Projects",
+    "achievements": "Achievements",
+    "recentActivity": "Recent Activity",
+    "newCompetency": "New competency added",
+    "competencyDetails": "React.js - 2 days ago",
+    "certificationCompleted": "Certification completed",
+    "certificationDetails": "AWS Solutions Architect - 1 week ago",
+    "projectUpdated": "Project updated",
+    "projectDetails": "Talent Management System - 2 weeks ago"
+  }
+}

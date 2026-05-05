@@ -1,0 +1,17 @@
+{
+  "OverviewPage": {
+    "welcome": "Bem-vindo ao AuraSkill",
+    "subtitle": "Sua plataforma completa para gestão de competências e habilidades",
+    "competencies": "Competências",
+    "certifications": "Certificações",
+    "projects": "Projetos",
+    "achievements": "Conquistas",
+    "recentActivity": "Atividade Recente",
+    "newCompetency": "Nova competência adicionada",
+    "competencyDetails": "React.js - Há 2 dias",
+    "certificationCompleted": "Certificação completada",
+    "certificationDetails": "AWS Solutions Architect - Há 1 semana",
+    "projectUpdated": "Projeto atualizado",
+    "projectDetails": "Sistema de Gestão de Talentos - Há 2 semanas"
+  }
+}
